@@ -26,8 +26,8 @@ public abstract class BaseIT {
     @Autowired
     BeerRepository beerRepository;
 
-    MockMvc mockMvc;
-    Beer beerToTest;
+    protected MockMvc mockMvc;
+    protected Beer beerToTest;
 
     @BeforeEach
     public void setup() {
@@ -56,6 +56,10 @@ public abstract class BaseIT {
     public static Stream<Arguments> getStreamAdminCustomer() {
         return Stream.of(Arguments.of("spring" , "guru"),
                 Arguments.of("scott", "tiger"));
+    }
+
+    public static Stream<Arguments> getStreamAdmin() {
+        return Stream.of(Arguments.of("spring" , "guru"));
     }
 
     public static Stream<Arguments> getStreamNotAdmin() {
