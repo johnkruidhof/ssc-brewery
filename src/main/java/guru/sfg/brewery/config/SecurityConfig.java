@@ -60,7 +60,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.addFilterBefore(restUrlParamAuthFilter(authenticationManager()),
 //                UsernamePasswordAuthenticationFilter.class).csrf().disable();
 
-        http
+        http.cors()
+            .and()
             .authorizeRequests(authorize -> {
                 authorize
                         .antMatchers("/h2-console/**").permitAll() //do not use in production!
